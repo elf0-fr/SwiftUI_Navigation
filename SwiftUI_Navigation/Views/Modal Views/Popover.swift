@@ -17,18 +17,26 @@ struct Popover: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 15) {
-                Button("Popover") {
+                Button("Popover ") {
                     showPopover1 = true
                 }
                 .popover(isPresented: $showPopover1) {
                     PopoverView()
+                    // Add presentationCompactAdaptation(.popover) to
+                    // get a proper popover in iPhone. Otherwise you
+                    // will get a sheet.
+                        .presentationCompactAdaptation(.popover)
                 }
                 
-                Button("Popover") {
+                Button("Popover leading") {
                     showPopover2 = true
                 }
                 .popover(isPresented: $showPopover2, arrowEdge: .leading) {
                     PopoverView()
+                    // Add presentationCompactAdaptation(.popover) to
+                    // get a proper popover in iPhone. Otherwise you
+                    // will get a sheet.
+                        .presentationCompactAdaptation(.popover)
                 }
                 
                 Button("Show First Cell") {
